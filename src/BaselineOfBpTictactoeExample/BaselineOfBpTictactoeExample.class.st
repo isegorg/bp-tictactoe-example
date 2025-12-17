@@ -52,7 +52,7 @@ BaselineOfBpTictactoeExample >> baseline: spec [
 				lepiterLiterate: spec;
 				gt4Bp: spec.
 			spec
-				package: 'BpCliGreetingExample'
+				package: 'BpCliTicTacToeExample'
 				with: [ spec requires: #('LepiterLiterate' 'Gt4BP') ] ]
 ]
 
