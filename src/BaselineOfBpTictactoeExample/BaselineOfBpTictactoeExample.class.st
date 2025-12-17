@@ -23,7 +23,10 @@ BaselineOfBpTictactoeExample class >> loadGt4BpLepiter [
 	anEnvironment := Smalltalk globals.
 	anEnvironment
 		at: gt4BpBaselineSymbol
-		ifPresent: [ :class | gt4BpBaselineSymbol asClass loadLepiter ]
+		ifPresent: [ :class |
+			"To ensure logical DB properties creation in cli mode"
+			LeLogicalDatabaseProperties defaultForGlamorousToolkit.
+			gt4BpBaselineSymbol asClass loadLepiter ]
 		ifAbsent: [  "NotFound signalFor: gt4BpBaselineSymbol in: anEnvironment" ]
 ]
 
