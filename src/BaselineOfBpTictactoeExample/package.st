@@ -1,1 +1,1 @@
-Package { #name : #BaselineOfBpTictactoeExample }
+Package { #name : 'BaselineOfBpTictactoeExample' }
