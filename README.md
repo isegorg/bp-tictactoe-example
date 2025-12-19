@@ -10,12 +10,12 @@ Glamorous Toolkit can be downloaded from https://gtoolkit.com/download/ and unzi
 The project can be loaded from the terminal with:
 
 ```bash
-<path_to_gt_cli>/GlamorousToolkit-cli --interactive
-	GlamorousToolkit.image eval
-	"Metacello new
-		repository: 'github://isegorg/bp-tictactoe-example:main/src';
-		baseline: 'BpTictactoeExample';
-		load."
+<path_to_gt_cli>/GlamorousToolkit-cli --interactive\
+	GlamorousToolkit.image eval\
+	"Metacello new\
+		repository: 'github://isegorg/bp-tictactoe-example:main/src';\
+		baseline: 'BpTictactoeExample';\
+		load."\
 	--save
 ```
 
@@ -43,7 +43,7 @@ Metacello new
 ## Start examples from CLI
 
 ```bash
-<path_to_gt_cli>/GlamorousToolkit-cli GlamorousToolkit.image
+<path_to_gt_cli>/GlamorousToolkit-cli GlamorousToolkit.image\
 	bpCliExample --class=BpCliTictactoeExample --signature=allRules
 ```
 
