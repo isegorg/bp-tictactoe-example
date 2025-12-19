@@ -52,32 +52,36 @@ BaselineOfBpTictactoeExample >> baseline: spec [
 	^ spec
 		for: #common
 		do: [
-			self
-				lepiterLiterate: spec;
-				gt4Bp: spec.
-			spec preLoadDoIt: #'postLoadChanges:'.
+			spec preLoadDoIt: #'preLoadDependencies:'.
 			spec
-				package: 'BpCliTictactoeExample'
-				with: [ spec requires: #('LepiterLiterate' 'Gt4BP') ] ]
+				package: 'BpCliTictactoeExample' ]
 ]
 
 { #category : 'post load' }
 BaselineOfBpTictactoeExample >> gt4Bp: spec [
-	spec
-		baseline: 'Gt4BP'
-		with: [
-			spec
-				repository: 'github://isegorg/gt4bp:main/src' ]
+	Metacello new
+		repository: 'github://isegorg/gt4bp:main/src';
+		baseline: 'Gt4BP';
+		load.
+		self class loadAndAssimilateKnowledgeGt4BpLepiter
 ]
 
 { #category : 'baseline' }
 BaselineOfBpTictactoeExample >> lepiterLiterate: spec [
-	spec
-		baseline: 'LepiterLiterate'
-		with: [ spec repository: 'github://blueplanelabs/lepiter-literate:main/src' ]
+	Metacello new
+			repository: 'github://blueplanelabs/lepiter-literate:main/src';
+			baseline: 'LepiterLiterate';
+			load.
 ]
 
 { #category : 'post load' }
 BaselineOfBpTictactoeExample >> postLoadChanges: spec [
 	self class loadAndAssimilateKnowledgeGt4BpLepiter
+]
+
+{ #category : 'post load' }
+BaselineOfBpTictactoeExample >> preLoadDependencies: spec [
+	self
+		lepiterLiterate: spec;
+		gt4Bp: spec.
 ]
