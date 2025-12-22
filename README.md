@@ -8,9 +8,9 @@ Glamorous Toolkit can be downloaded from https://gtoolkit.com/download/ and unzi
 
 ## Installation
 
-The project can be loaded from the terminal with the following command. Previously you should replace `$GT_HOME`, or define its value, to the binaries directory under the GT installation directory:
+The project can be loaded from the terminal with the following command. Previously you should replace `$GT_HOME`, or define its value, to the binaries directory under the GT installation directory.
 
-This command can take some time because it will download and install in your image the required dependencies (e.g. Gt4Bp will be downloaded and tangled). Once it finishes successfully all the GT windows will be closed and the control returned to the terminal:
+Note that this command can take some time because it will download and install the required dependencies in your image (e.g., Gt4Bp will be downloaded and tangled). Once it finishes successfully all the GT windows will be closed and the control returned to the terminal:
 
 ```bash
 $GT_HOME/GlamorousToolkit-cli --interactive \
