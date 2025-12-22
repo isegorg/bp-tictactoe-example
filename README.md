@@ -1,5 +1,6 @@
-# bp-tictactoe-example
-Example of Behavioral Programming (BP) in Glamorous Toolkit using Gt4Bp: play tictactoe waiting for move events.
+# BP TicTacToe CLI Example
+
+Example of the TicTacToe game controlled via the CLI and implemented using Behavioral Programming (BP) in Glamorous Toolkit with [Gt4Bp](https://github.com/isegorg/gt4bp): play tictactoe waiting for move events.
 
 ## Download
 
@@ -7,31 +8,33 @@ Glamorous Toolkit can be downloaded from https://gtoolkit.com/download/ and unzi
 
 ## Installation
 
-The project can be loaded from the terminal with:
+The project can be loaded from the terminal with the following command. Previously you should replace `$GT_HOME`, or define its value, to the binaries directory under the GT installation directory:
+
+This command can take some time because it will download and install in your image the required dependencies (e.g. Gt4Bp will be downloaded and tangled). Once it finishes successfully all the GT windows will be closed and the control returned to the terminal:
 
 ```bash
-<path_to_gt_cli>/GlamorousToolkit-cli --interactive\
-	GlamorousToolkit.image eval\
-	"Metacello new\
-		repository: 'github://isegorg/bp-tictactoe-example:main/src';\
-		baseline: 'BpTictactoeExample';\
-		load."\
+$GT_HOME/GlamorousToolkit-cli --interactive \
+	GlamorousToolkit.image eval \
+	"Metacello new \
+		repository: 'github://isegorg/bp-tictactoe-example:main/src'; \
+		baseline: 'BpTictactoeExample'; \
+		load." \
 	--save
 ```
 
 On Mac
 
 ```bash
-<path_to_gt_cli> = <unzip_folder>/GlamorousToolkit.app/Contents/MacOS/
+GT_HOME = <unzip_folder>/GlamorousToolkit.app/Contents/MacOS/
 ```
 
 On Linux
 
 ```bash
-<path_to_gt_cli> = <unzip_folder>/bin/
+GT_HOME = <unzip_folder>/bin/
 ```
 
-Or from within the image running in a playground
+Or from within the image running in a playground the following Smalltalk expression:
 
 ```st
 Metacello new
@@ -43,14 +46,22 @@ Metacello new
 ## Start examples from CLI
 
 ```bash
-<path_to_gt_cli>/GlamorousToolkit-cli GlamorousToolkit.image\
+$GT_HOME/GlamorousToolkit-cli GlamorousToolkit.image\
 	bpCliExample --class=BpCliTictactoeExample --signature=allRules
 ```
+The previous command starts the example that waits for inputs in the standard input.
 
-then you can insert events to the system by stdin and the fired events are passed to stdout.
+For example, you can copying the following input event to the standard input and pressing `RETURN`:
 
-![alt text](https://github.com/isegorg/bp-tictactoe-example/blob/main/assets/Specification-Alterning%20Turns-Snapshot.png)
+```json
+{"name":"move","data":{"row":1, "col":1}}
+```
+If the program runs as expected it should print the following two events in the standard output:
 
+```json
+{"name":"move","data":{"row":1,"col":1},"type":"eventFired"}
+{"name":"moveAccepted","data":{"row":1,"col":1,"player":"X"},"type":"eventFired"}
+```
 ## Specifications
 
-Several specifications can be found in [wiki-specifications](https://github.com/isegorg/bp-tictactoe-example/wiki/Specifications)
+The program's specifications can be found at [Specifications](https://github.com/isegorg/bp-tictactoe-example/wiki/Specifications)
